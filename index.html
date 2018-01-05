@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>GifTastic</title>
+
+  <!-- Bootstrap CDN -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+  <!-- Google Fonts -->
+
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+
+</head>
+<body>
+  <div class = "container">
+    <div class = "row controls">
+      <div class = "col-md-8 buttons">
+
+        <!-- insert buttons here -->
+
+      </div>
+      <div class = "col-md-4">
+        <!-- insert search box and button here -->
+        <form class = "form-inline">
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="input" class="sr-only">Search Term</label>
+            <input type="text" class="form-control" id="input" placeholder="search term">
+          </div>
+          <button type="submit" id="search-button" class="btn btn-primary mb-2">Search</button>
+        </form>
+      </div>
+    </div>
+
+    <div class = "row" id = "results">
+
+    <!-- Images will be added dynamically -->
+
+    </div>
+
+
+  </div>
+
+  <!--Javascript file -->
+  <script type="text/javascript" src="assets/javascript/app.js"></script>
+
+</body>
+</html>
