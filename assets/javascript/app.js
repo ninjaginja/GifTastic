@@ -1,7 +1,7 @@
 window.onload = function() {
 
   // Initial array of tvShows
-  var tvShows = ["Saved By The Bell", "Magnum PI", "Gilligan's Island", "Flight of the Concords"];
+  var tvShows = ["Saved By The Bell", "Miami Vice", "Gilligan's Island", "Alf", "The A-Team"];
 
   function displayGif() {
     $("#results").empty();
@@ -24,20 +24,14 @@ window.onload = function() {
 
         // Create divs for each thumbnail and gif
         var tvDiv = $("<div>");
-        tvDiv.addClass("col-md-4 tvShow");
+        tvDiv.addClass("col-md-4");
         var thumbnailDiv = $("<div>");
         thumbnailDiv.addClass("thumbnail");
         tvDiv.append(thumbnailDiv);
 
-        // Store rating in variable and add to p tag
-        var rating = response.data[i].rating;
-        var ratingUpperCase = rating.toUpperCase();
-        var pRating = $("<p>");
-        pRating.addClass("rating");
-        pRating.append("Rating: " + ratingUpperCase);
-        thumbnailDiv.append(pRating);
 
-        // Create img tag
+
+        // Create img tag and set state to still
         var gif = $("<img class = 'gif'>");
         gif.attr("data-state", "still");
 
@@ -51,6 +45,14 @@ window.onload = function() {
 
         gif.attr("src", stillImageUrl);
         thumbnailDiv.append(gif);
+
+        // Store rating in variable and add to p tag
+        var rating = response.data[i].rating;
+        var ratingUpperCase = rating.toUpperCase();
+        var pRating = $("<p>");
+        pRating.addClass("rating");
+        pRating.append("Rating: " + ratingUpperCase);
+        thumbnailDiv.append(pRating);
 
         $("#results").append(tvDiv);
 
@@ -70,6 +72,18 @@ window.onload = function() {
     }
   }
 
+  function toggleImage() {
+    var state = $(this).attr("data-state");
+    if (state === "still") {
+      $(this).attr("src", $(this).attr("data-animate"));
+      $(this).attr("data-state", "animate");
+      console.log("Hello");
+    } else {
+      $(this).attr("src", $(this).attr("data-still"));
+      $(this).attr("data-state", "still");
+    }
+  }
+
 
     $("#search-button").on("click", function(event) {
       event.preventDefault();
@@ -84,23 +98,10 @@ window.onload = function() {
     });
 
 
-
     // Adding a click event listener to all elements with a class of .tvShow, call displayGif function
     $(document).on("click", ".tvShow", displayGif);
 
-
-    $(".gif").on("click", function() {
-      var state = $(this).attr("data-state");
-      if (state === "still") {
-        $(this).attr("src", $(this).attr("data-animate"));
-        $(this).attr("data-state", "animate");
-        console.log("Hello");
-      } else {
-        $(this).attr("src", $(this).attr("data-still"));
-        $(this).attr("data-state", "still");
-        console.log("Hello");
-      }
-    });
+    $(document).on("click", ".gif", toggleImage);
 
 
     // Display buttons on page load

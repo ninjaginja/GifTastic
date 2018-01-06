@@ -1,9 +1,14 @@
+body {
+  background-image: url('../images/cloudy-day.png');
+}
+
 .container {
   margin-top: 30px;
 }
 
 .controls {
-  margin-bottom: 20px;
+  margin: 0 auto;
+  padding-bottom: 20px;
 }
 
 .results {
@@ -11,18 +16,46 @@
 }
 
 button {
-  background-color: #556b6a;
+  background-color: #75afaf;
   color: #ffffff;
-  padding: 5px 10px 5px 10px;
+  padding: 10px 15px 10px 15px;
   margin: 10px;
+  border: none;
+}
+
+form {
+  text-align: right;
+}
+
+#search-button {
+  background-color: #75afaf;
+  border: none;
+  border-radius: 0;
+  padding: 10px 15px 10px 15px;
+}
+
+#input {
+  padding: 20px;
+  width: 200px;
+  margin-top: 10px;
+  border-radius: 0;
 }
 
 .thumbnail {
   width: 300px;
-  height: 220px;
+  height: 300px;
   margin: 0 auto;
+  margin-bottom: 20px;
+  border: 2px solid #75afaf;
+  background-color: #f2fcfc;
+}
+
+.gif {
+  max-height:300px;
 }
 
 .rating {
   text-align: center;
+  font-size: 18px;
+  margin-top: 10px;
 }
